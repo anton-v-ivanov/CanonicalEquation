@@ -1,4 +1,4 @@
-# CanonicalEquation
+# Canonical Equation
 Transforms equation to canonical form: yields similar operands and equates the sum to zero.   
 The equation can be of any order, can contains any number of variables, can be written with parentheses (in this case, the application should open parentheses according to math rules).   
 
