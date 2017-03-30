@@ -1,0 +1,102 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using CanonicalEquation.Equations;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace CanonicalEquation.Tests.Equations
+{
+	[TestClass]
+	public class EquationCompressorTests
+	{
+		private IEquationCompressor _sut;
+
+		[TestInitialize]
+		public void Prepare()
+		{
+			_sut = new EquationCompressor();
+		}
+
+		[TestMethod]
+		public void CompressTest()
+		{
+			// x^2 + 3.5xy + y - y^2 + xy - y
+			var input = new List<Operand>
+			{
+				new Operand(1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('x', 2)
+					}
+				},
+				new Operand(3.5f)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('x', 1),
+						new Variable('y', 1)
+					}
+				},
+				new Operand(1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('y', 1)
+					}
+				},
+				new Operand(-1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('y', 2)
+					}
+				},
+				new Operand(1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('x', 1),
+						new Variable('y', 1)
+					}
+				},
+				new Operand(-1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('y', 1)
+					}
+				},
+			};
+
+			// x^2 + 4.5xy - y^2
+			var expected = new List<Operand>
+			{
+				new Operand(1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('x', 2)
+					}
+				},
+				new Operand(4.5f)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('x', 1),
+						new Variable('y', 1)
+					}
+				},
+				new Operand(-1)
+				{
+					Variables = new List<Variable>
+					{
+						new Variable('y', 2)
+					}
+				}
+			};
+
+			var actual = _sut.Compress(input);
+			Assert.IsTrue(expected.SequenceEqual(actual));
+		}
+	}
+}
