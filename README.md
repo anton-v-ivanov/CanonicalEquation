@@ -3,18 +3,18 @@ Transforms equation to canonical form: yields similar operands and equates the s
 The equation can be of any order, can contains any number of variables, can be written with parentheses (in this case, the application should open parentheses according to math rules).   
 
 The equation for the input will be passed as a string in the following format:   
-P1 + P2 + ... = ... + PN   
+`P1 + P2 + ... = ... + PN`  
 Where P1..PN are operands represented as:   
-ax ^ k   
+`ax ^ k`  
 Where a is a float number;   
 k is an integer;  
 x is a variable (it can contains several variables for one operand).  
 
 
 For example, an equation can be given that is:  
-X ^ 2 + 3.5xy + y = y ^ 2 - xy + y  
+`X ^ 2 + 3.5xy + y = y ^ 2 - xy + y`  
 It should be transformed to:  
-X ^ 2 - y ^ 2 + 4.5xy = 0   
+`X ^ 2 - y ^ 2 + 4.5xy = 0`   
 
 
 The program is a console application and supports two modes of operation - interactive and file.  
