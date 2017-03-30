@@ -6,9 +6,9 @@ The equation for the input will be passed as a string in the following format:
 `P1 + P2 + ... = ... + PN`  
 Where P1..PN are operands represented as:   
 `ax ^ k`  
-Where a is a float number;   
-k is an integer;  
-x is a variable (it can contains several variables for one operand).  
+Where `a` is a float number;   
+`k` is an integer;  
+`x` is a variable (it can contains several variables for one operand).  
 
 
 For example, an equation can be given that is:  
